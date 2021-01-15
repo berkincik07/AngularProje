@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        Merhaba <b>{{adsoyad}}</b>,
+        <button class="btn btn-outline-danger" style="float:right" (click)="OturumKapat()"
+          *ngIf="fbServis.OturumKontrol()">Oturumu
+          Kapat</button>
+        <br>
+        <br>
+        <br>
+        <a class="btn btn-outline-info" [routerLink]="['/admin']">Yönetici Paneli</a>
+        <a class="mr-2 btn btn-outline-primary" style="float:right" [routerLink]="['/mesajlar']">Mesajlar</a>
+        <a class="btn btn-outline-primary" style="float:right" [routerLink]="['/kayitlar']">Araçlar</a>
+       
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+                
+        <h3>Müşteri Bilgileri</h3>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <th>Mail</th>
+            <th>Tarih</th>
+            <th>Araç</th>
+            <th>Alınacak Toplam Ücret</th>
+            <th>Alınacak Günlük Ücret</th>
+            <th>Kaç Günlük</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let musteri of musteriler">
+              <td>{{musteri.mail}}</td>
+              <td>{{musteri.tarih | date:'dd.MM.yyyy HH:mm:ss'}}</td>   
+              <td>{{musteri.model}}</td>
+              <td>{{musteri.fiyat * musteri.gun}}</td>
+              <td>{{musteri.fiyat}}</td>
+              <td>{{musteri.gun}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

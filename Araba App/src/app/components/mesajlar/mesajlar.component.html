@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      Merhaba <b>{{user}}</b>,
+     <br>
+      
+      <button *ngIf="mesajlar.length>0" class="btn btn-outline-danger mt-3 btn-lg" (click)="HepsiniSil()">Hepsini Okudum, Sil.</button>
+      <button class="btn btn-outline-danger" style="float:right" (click)="OturumKapat()"
+        >Oturumu
+        Kapat</button>
+        <br>
+        <br>
+        <a class="btn btn-outline-info" [routerLink]="['/admin']">Yönetici Paneli</a>
+        <a class="btn btn-outline-primary" style="float:right" [routerLink]="['/kayitlar']">Kayitlar</a>
+        <a class="ml-2 btn btn-outline-primary" style="float:right" [routerLink]="['/musteriler']">Müşteriler</a>
+        <br>
+        <br>
+        <div *ngIf="mesajlar.length == 0" class="alert alert-info">Hiç Mesajınız Bulunmuyor.</div>
+        
+      <br>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card text-center m-5" *ngFor="let mesaj of mesajlar">
+        <div class="card-header">
+         Ad Soyad : {{mesaj.ad}} <br>
+         Mail Adresi :  {{mesaj.mail}} <br>   
+         Telefon Numarası : {{mesaj.telefon}}
+        </div>
+        <div class="card-body">
+          
+          <p class="card-text">{{mesaj.mesaj}}</p>
+          
+        </div>
+        <div class="card-footer text-muted">
+          {{mesaj.gonTarih}}
+          
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
