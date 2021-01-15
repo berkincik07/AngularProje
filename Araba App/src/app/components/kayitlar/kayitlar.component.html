@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      Merhaba <b>{{adsoyad}}</b>,
+      <button class="btn btn-outline-danger" style="float:right" (click)="OturumKapat()"
+        *ngIf="fbServis.OturumKontrol()">Oturumu
+        Kapat</button>
+      <br>
+      <br>
+      <br>
+      <a class="btn btn-outline-info" [routerLink]="['/admin']">Yönetici Paneli</a>
+      <a class="btn btn-outline-primary" style="float:right" [routerLink]="['/mesajlar']">Mesajlar</a>
+      <a class="ml-2 btn btn-outline-primary" style="float:right" [routerLink]="['/musteriler']">Müşteriler</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Araç Kaydet</h3>
+      <form>
+        <label for="year">Araba Yılı</label>
+        <input type="text" #yil name="year" class="form-control">
+        <label for="year">Araba Günlük Fiyat</label>
+        <input type="text" #fiyat name="fiyat" class="form-control">
+        <label for="year">Araba Id</label>
+        <input type="text" #id name="id" class="form-control">
+        <label for="model">Araba Modeli</label>
+        <input type="text" #model name="model" class="form-control">
+        <label for="km">Araba Km</label>
+        <input type="text" #km name="km" class="form-control">
+        <label for="klima">Araba Klima Durumu</label>
+        <input type="text" #klima name="klima" class="form-control">
+        <label for="yakit">Araba Yakıt</label>
+        <input type="text" #yakit name="yakit" class="form-control">
+        <label for="vites">Araba Vites</label>
+        <input type="text" #vites name="vites" class="form-control">
+        <br>
+        <input type="file" (change)="ArabaSec($event)">
+        <br>
+        <br>
+        <button class="btn btn-success" (click)="FileUpload(yil.value,model.value,fiyat.value,id.value,km.value,klima.value,vites.value,yakit.value)">Kaydet</button>
+      </form>
+      <br>
+      <br>
+      <br>
+      <h3>Araç Listesi</h3>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <th>Id</th>
+          <th>Fotoğraf</th>
+          <th>Araba Modeli</th>
+          <th>Tarih</th>
+          <th>Yıl</th>
+          <th>Günlük Fiyat</th>
+          <th>Km</th>
+          <th>Klima Durumu</th>
+          <th>Vites</th>
+          <th>Yakıt</th>
+          <th>Sil</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{car.id}}</td>
+            <td>
+              <a href="{{car.url}}" target="_blank">
+              {{car.ad}}</a></td>
+            <td>{{car.model}}</td>
+            <td>{{car.tarih | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+            <td>{{car.yil}}</td>
+            <td>{{car.fiyat}}</td>
+            <td>{{car.km}}</td>
+            <td>{{car.klima}}</td>
+            <td>{{car.vites}}</td>
+            <td>{{car.yakit}}</td>
+            <td><button class="btn btn-outline-danger" (click)="DeleteCar(car)">Sil</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+  
+</div>
+
+<br><br>

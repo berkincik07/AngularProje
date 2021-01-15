@@ -1,0 +1,293 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #121212;" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/assets/img/logos/incik-logo.jpeg" alt="Logo" style="height: 50px; width: auto;" /></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ml-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Hizmetler</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Araçlar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Hakkımızda</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Ekibimiz</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Iletisim</a></li>
+                <li class="nav-item" *ngIf="oturumKontrol()"><button class="btn btn-danger" (click)="OturumKapat()"
+                    >Oturumu
+                    Kapat</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="masthead" id="page-top">
+    <div class="container">
+        <div class="masthead-subheading">Lüks Araçlar...</div>
+        <div class="masthead-heading text-uppercase">Araç Kiralamanın Adresi! </div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">Araçlarımızı Incele</a>
+    </div>
+</header>
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Hizmetlerimiz</h2>
+            <h3 class="section-subheading text-muted">Sizin için en uygun hizmeti sağlamaya hazırız.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-car fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Biz Teslim Edelim</h4>
+                <p class="text-muted">Kataloglardan beğendiğiniz aracı biz adresinize getirelim.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-key fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Siz Gelin Alın</h4>
+                <p class="text-muted">Kiralamak istediğiniz aracı yerinde beğenerek seçiminizi yapın.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-parking fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Biz Alalım</h4>
+                <p class="text-muted">Süre sonunda aracı size uygun yere park edin, biz alalım.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Araçlarımız</h2>
+            <h3 class="section-subheading text-muted">Incik Oto Güvencesiyle...</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4" *ngFor="let car of cars">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#car{{car.id}}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{car.url}}" alt="" />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">{{car.model}}</div>
+                        <div class="portfolio-caption-subheading text-muted">{{car.yil}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About-->
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Hakkımızda</h2>
+            <h3 class="section-subheading text-muted">Kuruluşumuzdan bu yana gelişimimiz</h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/images/about-little.jpg" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>2009-2011</h4>
+                        <h4 class="subheading">Firmamızın Kuruluşu ve Ortaklık</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Firmamızın ilk planlamasını büyüme potansiyelini tartıştık.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid mt-1" src="assets/assets/img/images/mercedes-little.jpg"  alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Mart 2011</h4>
+                        <h4 class="subheading">Bir Firma Doğdu.</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">İlk araçlarımızı aldık ve kiralamaya başladık.</p></div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/images/mustang-little.jpg" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>2016</h4>
+                        <h4 class="subheading">Geniş çaplı hizmet vermeye başladık.</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Araç çeşitliliğimizi sürekli arttırmaya devam ettik.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/images/lambo-little.jpg" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Ocak 2021</h4>
+                        <h4 class="subheading">Lüks araçlarla hizmetimize devam ediyoruz.</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Tıpkı ilk günkü gibi hizmetimiz kesintisiz devam ediyor.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        Gelişimimiz
+                        <br />
+                        Devam
+                        <br />
+                        Ediyor!
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- Team-->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Firmamızın Kurucuları</h2>
+           
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/assets/img/images/person_1.jpg" alt="" />
+                    <h4>Kenan Ufuk Incik</h4>
+                    <p class="text-muted">Kurucu Ortak</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/assets/img/images/person_2.jpg" alt="" />
+                    <h4>Mehmet Berk Incik</h4>
+                    <p class="text-muted">Kurucu Ortak & CEO</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/assets/img/images/person_3.jpg" alt="" />
+                    <h4>Uğur Incik</h4>
+                    <p class="text-muted">Kurucu Ortak</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Buraya 3 kişi sığdırabilsek de bu işin arkasında daha büyük bir ekip var.</p></div>
+        </div>
+    </div>
+</section>
+<!-- Clients-->
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Bize Ulaşın !</h2>
+            <h3 class="section-subheading">Sizin bir tık uzağınızdayız.</h3>
+        </div>
+        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input class="form-control" id="name" type="text" placeholder="Adınız *" name="ad" #ad required="required" data-validation-required-message="Lütfen adınızı giriniz." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="email" type="email" placeholder="E-mail Adresiniz *" name="mail" #mail required="required" data-validation-required-message="Please enter your email address." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group mb-md-0">
+                        <input class="form-control" id="phone" type="tel" placeholder="Telefon Numaranız *" name="tel" #tel required="required" data-validation-required-message="Please enter your phone number." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <textarea class="form-control" id="message" placeholder="Mesajınız *" name="mesaj" #mesaj required="required" data-validation-required-message="Please enter a message."></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <div id="success"></div>
+                <button class="btn btn-primary btn-xl text-uppercase" (click)="Gonder(ad.value,mail.value,tel.value,mesaj.value)" id="sendMessageButton" type="submit">Mesajı Gönder</button>
+            </div>
+            
+        </form>
+    </div>
+</section>
+
+
+<div *ngFor="let car of cars" class="portfolio-modal modal fade" id="car{{car.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="assets/assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                          
+                            <h2 class="text-uppercase">{{car.model}}</h2>
+                            <p class="item-intro text-muted">{{car.yil}} model</p>
+                            <img class="img-fluid d-block mx-auto" src="{{car.url}}" alt="" />
+                            <p>Aracımız sizin için hazır bekliyor.</p>
+                            <ul class="list-inline">
+                                <li class="mb-2">Fiyat: {{car.fiyat}}</li>
+                                <li class="mb-2">KM : {{car.km}}</li>
+                                <li class="mb-2">Klima : {{car.klima}}</li>
+                                <li class="mb-2">Vites : {{car.vites}}</li>
+                                <li class="mb-2">Yakıt : {{car.yakit}}</li> 
+                            </ul>
+                            <label for="gun">Kaç günlük kiralamak istiyorsunuz ? </label>
+                            <input type="text" class="form-control" placeholder="Lütfen gün sayısı giriniz." #gun name="gun">
+                            <label for="mail">Mail Adresiniz</label>
+                            <input type="text" placeholder="Size ulaşabilmemiz için mail adresinizi doğru girdiğinizden emin olunuz." class="form-control" #mail name="mail">
+                            <label for="ad">Adınız</label>
+                            <input type="text" required placeholder="Lütfen adınızı giriniz." class="form-control" #ad name="ad">
+                            <br>
+                            <button class="btn btn-outline-primary btn-lg" (click)="kirala(gun.value,mail.value,ad.value,car.fiyat,car.model)">Kirala</button>
+                                <br><br>
+                            <button class="btn btn-danger" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                Pencereyi Kapat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-left">Copyright © İncik Oto 2021</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+                <a class="mr-3" href="#!">Gizlilik Politikası</a>
+                <a href="#!">Kullanılan Terimler</a>
+            </div>
+        </div>
+    </div>
+</footer>
